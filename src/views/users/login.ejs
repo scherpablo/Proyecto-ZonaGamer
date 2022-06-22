@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head')%>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login de Usuario - Zona Gamer</title>
+  <link rel="preload" href="/css/normalize.css" as="style">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/css/style-register.css">
+  <link rel="stylesheet" href="/css/style-register.css">
+  <script src="https://kit.fontawesome.com/3a84dfeae6.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/89cdafc43a.js" crossorigin="anonymous"></script>
+  <link rel="preload" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+
+<body>
+  <!--***CABECERA****-->
+
+  <%- include('../partials/header')%>
+
+  <!--*** FIN CABECERA ****-->
+
+  <!--*** CUERPO PRINCIPAL ****-->
+  <main>
+
+    <section class="signup-group">
+      <section class="container-titulo-form">
+        <h2><span class="semi-bold">Inicio de Sesión</h2>
+      </section>
+
+      <section class="form-container">
+        <form action="/users/login" method="POST" name="form-login">
+          <div>
+            <i class="fa-regular fa-id-badge"></i>
+            <label>*Nombre de Usuario</label>
+            <input type="text" id="signup-username" name="userName" placeholder="Nombre de usuario">
+            <% if (locals.errors && errors.userName) { %>
+            <div class="text-danger">
+              <%= errors.userName.msg %>
+            </div>
+            <% } %>
+          </div>
+          <div>
+            <i class="fa-solid fa-key"></i>
+            <label>*Contraseña</label>
+            <input type="password" id="signup-password" name="contrasenia" placeholder="Ingrese un contraseña">
+            <% if (locals.errors && errors.contrasenia) { %>
+            <div class="text-danger">
+              <%= errors.contrasenia.msg %>
+            </div>
+            <% } %>
+          </div>
+
+          <div>
+            <div>
+              <label class="label"><input class="check" name='recordarUsuario' type="checkbox" /> *Recordar
+                Usuario</label>
+            </div>
+          </div>
+
+          <input class="button" id="signup-submit" type="submit" value="Ingresar">
+        </form>
+
+        <p class="terminos">Para ingresar como admiistrador ingresar con admin/adminr <br><span>Para Ir a agregar/editar
+            productos</span> </p>
+      </section>
+
+    </section>
+    <section>
+      <header class="informacion-lateral">
+        <h1>Tus beneficios al iniciar sesión</h1>
+        <p><i class="fa-solid fa-key"> </i> Control de privacidad.</p><br>
+        <p><i class="fa-solid fa-arrow-down"> </i> Descuentos exclusivos en productos seleccionados.</p><br>
+        <p><i class="fa-solid fa-headset"> </i> Servicio de consultas durante la compra.</p><br>
+        <p><i class="fa-solid fa-star"> </i> Acumulacion de puntos en cada compra.</p><br>
+      </header>
+    </section>
+  </main>
+  <!--*** FIN CUERPO PRINCIPAL ****-->
+
+  <!--*** FOOTER ****-->
+
+  <%- include('../partials/footer')%>
+
+  <!--*** FIN FOOTER ****-->
+</body>
+
+</html>
